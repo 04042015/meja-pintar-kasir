@@ -6,7 +6,8 @@ import { MenuCard, MenuItem } from "./MenuCard";
 import { OrderItemComponent, OrderItem } from "./OrderItem";
 import { TableSelector } from "./TableSelector";
 import { CategoryTabs, categories } from "./CategoryTabs";
-import { Receipt, Save, Trash2, CreditCard } from "lucide-react";
+import { Settings } from "./Settings";
+import { Receipt, Save, Trash2, CreditCard, Settings as SettingsIcon } from "lucide-react";
 
 // Sample menu data
 const sampleMenuItems: MenuItem[] = [
@@ -51,8 +52,11 @@ export const POSInterface = () => {
   const [selectedCategory, setSelectedCategory] = useState("makanan-utama");
   const [selectedTable, setSelectedTable] = useState<string | null>(null);
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
+  const [showSettings, setShowSettings] = useState(false);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>(sampleMenuItems);
+  const [tables, setTables] = useState(sampleTables);
 
-  const filteredMenuItems = sampleMenuItems.filter(
+  const filteredMenuItems = menuItems.filter(
     (item) => item.category === selectedCategory
   );
 
@@ -111,8 +115,20 @@ export const POSInterface = () => {
   };
 
   const selectedTableNumber = selectedTable 
-    ? sampleTables.find(table => table.id === selectedTable)?.number 
+    ? tables.find(table => table.id === selectedTable)?.number 
     : null;
+
+  if (showSettings) {
+    return (
+      <Settings
+        onBack={() => setShowSettings(false)}
+        tables={tables}
+        onTablesUpdate={setTables}
+        menuItems={menuItems}
+        onMenuUpdate={setMenuItems}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background p-4">
@@ -124,13 +140,23 @@ export const POSInterface = () => {
             <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Meja Pintar Kasir
             </h1>
-            <div className="text-sm text-muted-foreground">
-              {selectedTableNumber && `Meja: ${selectedTableNumber}`}
+            <div className="flex items-center gap-4">
+              <div className="text-sm text-muted-foreground">
+                {selectedTableNumber && `Meja: ${selectedTableNumber}`}
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowSettings(true)}
+              >
+                <SettingsIcon className="h-4 w-4 mr-2" />
+                Pengaturan
+              </Button>
             </div>
           </div>
 
           <TableSelector
-            tables={sampleTables}
+            tables={tables}
             selectedTable={selectedTable}
             onSelectTable={setSelectedTable}
           />
