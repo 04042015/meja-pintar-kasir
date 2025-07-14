@@ -52,6 +52,38 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
+				info: {
+					DEFAULT: 'hsl(var(--info))',
+					foreground: 'hsl(var(--info-foreground))'
+				},
+				orange: {
+					DEFAULT: 'hsl(var(--orange))',
+					foreground: 'hsl(var(--orange-foreground))'
+				},
+				'red-accent': {
+					DEFAULT: 'hsl(var(--red-accent))',
+					foreground: 'hsl(var(--red-accent-foreground))'
+				},
+				'green-accent': {
+					DEFAULT: 'hsl(var(--green-accent))',
+					foreground: 'hsl(var(--green-accent-foreground))'
+				},
+				'blue-accent': {
+					DEFAULT: 'hsl(var(--blue-accent))',
+					foreground: 'hsl(var(--blue-accent-foreground))'
+				},
+				'yellow-accent': {
+					DEFAULT: 'hsl(var(--yellow-accent))',
+					foreground: 'hsl(var(--yellow-accent-foreground))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

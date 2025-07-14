@@ -18,6 +18,13 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        orange: "bg-orange text-orange-foreground hover:bg-orange/90",
+        success: "bg-success text-success-foreground hover:bg-success/90",
+        warning: "bg-warning text-warning-foreground hover:bg-warning/90",
+        "red-accent": "bg-red-accent text-red-accent-foreground hover:bg-red-accent/90",
+        "green-accent": "bg-green-accent text-green-accent-foreground hover:bg-green-accent/90",
+        "blue-accent": "bg-blue-accent text-blue-accent-foreground hover:bg-blue-accent/90",
+        "yellow-accent": "bg-yellow-accent text-yellow-accent-foreground hover:bg-yellow-accent/90",
       },
       size: {
         default: "h-10 px-4 py-2",
